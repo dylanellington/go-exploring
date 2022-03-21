@@ -13,9 +13,6 @@
 
 # Dependency directories (remove the comment below to include it)
 # Jetbrains
-# User-specific stuff
-.idea/**/workspace.xml
-.idea/**/tasks.xml
-.idea/**/usage.statistics.xml
-.idea/**/dictionaries
-.idea/**/shelf
+**/.idea
+
+.DS_Store
