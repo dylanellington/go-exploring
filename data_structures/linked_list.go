@@ -19,13 +19,38 @@ func (list *LinkedList[T]) Add(value T) {
 
 	if list.head == nil {
 		list.head = &newNode
-		list.last = &newNode
+		list.last = list.head
 	} else {
 		list.last.next = &newNode
-		list.last = &newNode
+		list.last = list.last.next
 	}
 
 	list.size++
+}
+
+func (list *LinkedList[T]) RemoveAt(index int) bool {
+	if index < 0 || index >= list.size {
+		return false
+	}
+
+	if index == 0 {
+		list.head = list.head.next
+		list.size--
+		return true
+	}
+
+	node := list.head
+	nodeToRemove := node.next
+
+	for i := 1; i < index; i++ {
+		node = nodeToRemove
+		nodeToRemove = nodeToRemove.next
+	}
+
+	node.next = nodeToRemove.next
+	list.size--
+
+	return true
 }
 
 func (list LinkedList[T]) ToArray() []T {
