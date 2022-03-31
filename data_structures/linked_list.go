@@ -11,6 +11,7 @@ type LinkedList[T any] struct {
 	size int
 }
 
+// Add inserts a given item at the end of the list.
 func (list *LinkedList[T]) Add(value T) {
 	newNode := Node[T]{
 		item: value,
@@ -28,6 +29,7 @@ func (list *LinkedList[T]) Add(value T) {
 	list.size++
 }
 
+// RemoveAt removes an item from the list at a given index.
 func (list *LinkedList[T]) RemoveAt(index int) bool {
 	if index < 0 || index >= list.size {
 		return false
@@ -53,6 +55,7 @@ func (list *LinkedList[T]) RemoveAt(index int) bool {
 	return true
 }
 
+// ToArray converts the list to an array.
 func (list LinkedList[T]) ToArray() []T {
 	array := []T{}
 	head := list.head
