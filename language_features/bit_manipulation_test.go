@@ -61,6 +61,15 @@ func Test_Bit_Toggle(t *testing.T) {
 	}
 }
 
+func Test_Bit_Check(t *testing.T) {
+	integer := uint(4)
+	isBitChecked := CheckBit(integer, 2)
+
+	if isBitChecked != true {
+		t.Errorf("Checked bit at postion %v for integar %v, expected result to be true. Result was %v.", 2, integer, isBitChecked)
+	}
+}
+
 func Test_Bit_OnesCount(t *testing.T) {
 	integer := uint(15)
 	count := OnesCount(integer)
