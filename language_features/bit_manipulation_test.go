@@ -22,10 +22,11 @@ func Test_Bit_Set(t *testing.T) {
 
 func Test_Bit_Set_LargePosition(t *testing.T) {
 	integer := uint(1)
+	expectedResult := uint(1)
 	SetBit(&integer, 393738273)
 
-	if integer != 1 {
-		t.Errorf("Bit set on even number expected result to be 1, result was %v.", integer)
+	if integer != expectedResult {
+		t.Errorf("Bit set on even number expected result to be %v, result was %v.", expectedResult, integer)
 	}
 }
 
@@ -63,18 +64,21 @@ func Test_Bit_Toggle(t *testing.T) {
 
 func Test_Bit_Check(t *testing.T) {
 	integer := uint(4)
-	isBitChecked := CheckBit(integer, 2)
+	position := 2
+	expectedResult := true
+	isBitChecked := CheckBit(integer, position)
 
-	if isBitChecked != true {
-		t.Errorf("Checked bit at postion %v for integar %v, expected result to be true. Result was %v.", 2, integer, isBitChecked)
+	if isBitChecked != expectedResult {
+		t.Errorf("Bit check for %v at position %v returned %v. Expected result to be %v.", integer, position, isBitChecked, expectedResult)
 	}
 }
 
 func Test_Bit_OnesCount(t *testing.T) {
 	integer := uint(15)
+	expectedResult := 4
 	count := OnesCount(integer)
 
-	if count != 4 {
-		t.Errorf("Ones check of %v expected result to be 4, result was %v.", integer, count)
+	if count != expectedResult {
+		t.Errorf("Ones check of %v returned %v. Expected result of %v.", integer, count, expectedResult)
 	}
 }
