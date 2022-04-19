@@ -6,5 +6,5 @@ import (
 )
 
 func Test_General(t *testing.T) {
-	fmt.Println(lengthOfLongestSubstring("abba"))
+	fmt.Println(longestNonRepeatingSubstring("abba"))
 }
