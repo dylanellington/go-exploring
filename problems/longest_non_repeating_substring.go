@@ -1,6 +1,6 @@
 package problems
 
-func lengthOfLongestSubstring(s string) int {
+func longestNonRepeatingSubstring(s string) int {
 	hashmap := make(map[rune]int)
 	substringIndex := 0
 	longestCount := 0
