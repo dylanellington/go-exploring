@@ -1,12 +1,11 @@
-package problems
+package stacks_and_recursion
 
-// Already declared in another problem in this package.
-//var directions = [4][2]int{
-//	{ -1, 0 }, // North
-//	{ 1, 0 },  // South
-//	{ 0, 1 },  // East
-//	{ 0, -1 }, // West
-//}
+var directions = [4][2]int{
+	{ -1, 0 }, // North
+	{ 1, 0 },  // South
+	{ 0, 1 },  // East
+	{ 0, -1 }, // West
+}
 
 var island = "1"
 

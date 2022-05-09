@@ -1,4 +1,4 @@
-package problems
+package graphs
 
 type Node struct {
 	Val int

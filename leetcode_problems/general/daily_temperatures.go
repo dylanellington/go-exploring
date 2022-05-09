@@ -1,4 +1,4 @@
-package problems
+package general
 
 type Temperature struct {
 	index int

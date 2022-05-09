@@ -1,4 +1,4 @@
-package problems
+package general
 
 func strStr(haystack string, needle string) int {
 	if len(needle) > len(haystack) {

@@ -1,6 +1,6 @@
-package problems
+package general
 
-func longestNonRepeatingSubstring(s string) int {
+func LongestNonRepeatingSubstring(s string) int {
 	hashmap := make(map[rune]int)
 	substringIndex := 0
 	longestCount := 0

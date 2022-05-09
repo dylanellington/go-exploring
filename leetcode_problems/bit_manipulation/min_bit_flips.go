@@ -1,4 +1,4 @@
-package problems
+package bit_manipulation
 
 func minBitFlips(start int, goal int) int {
 	xorResult := start^goal

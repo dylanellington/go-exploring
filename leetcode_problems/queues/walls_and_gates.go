@@ -1,4 +1,4 @@
-package problems
+package queues
 
 const (
 	INF  = 2147483647

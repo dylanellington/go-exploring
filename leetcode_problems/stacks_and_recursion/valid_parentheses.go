@@ -1,4 +1,4 @@
-package problems
+package stacks_and_recursion
 
 type Stack struct {
 	items []rune
@@ -69,4 +69,4 @@ func isValid(s string) bool {
 	}
 
 	return true
-} s
+}
