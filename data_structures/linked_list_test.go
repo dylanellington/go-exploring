@@ -113,3 +113,20 @@ func Test_LinkedList_ToArray_Empty(t *testing.T) {
 		t.Errorf("List to array conversion did not return an empty array.")
 	}
 }
+
+func Test_LinkedList_Performance(t *testing.T) {
+	list := LinkedList[int]{}
+	iterations := 1000
+
+	for count := 0; count < iterations; count++ {
+		list.Add(count)
+	}
+
+	for count := iterations - 1; count >= 0; count-- {
+		list.RemoveAt(count)
+	}
+
+	if list.size != 0 {
+		t.Errorf("Expected list size of 0 but actual size is %q.", list.size)
+	}
+}
