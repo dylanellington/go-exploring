@@ -86,14 +86,14 @@ func Test_ArrayList_Remove_OutOfBounds(t *testing.T) {
 
 func Test_ArrayList_Performance(t *testing.T) {
 	list := ArrayList[int]{}
-	iterations := 1000000
+	iterations := 100000
 
 	for count := 0; count < iterations; count++ {
 		list.Add(count)
 	}
 
 	for count := iterations - 1; count >= 0; count-- {
-		list.RemoveAt(count)
+		list.RemoveAt(0)
 	}
 
 	if len(list.array) != 0 {

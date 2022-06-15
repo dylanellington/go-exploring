@@ -5,7 +5,7 @@ import (
 )
 
 func Test_LinkedList_Add(t *testing.T) {
-	list := LinkedList[int]{}
+	list := NewLinkedList[int]()
 	itemOne, itemTwo, itemThree := 1, 2, 3
 	list.Add(itemOne)
 	list.Add(itemTwo)
@@ -17,7 +17,7 @@ func Test_LinkedList_Add(t *testing.T) {
 }
 
 func Test_LinkedList_Remove_First(t *testing.T) {
-	list := LinkedList[int]{}
+	list := NewLinkedList[int]()
 	itemOne, itemTwo, itemThree := 1, 2, 3
 	list.Add(itemOne)
 	list.Add(itemTwo)
@@ -36,7 +36,7 @@ func Test_LinkedList_Remove_First(t *testing.T) {
 }
 
 func Test_LinkedList_Remove_Middle(t *testing.T) {
-	list := LinkedList[int]{}
+	list := NewLinkedList[int]()
 	itemOne, itemTwo, itemThree := 1, 2, 3
 	list.Add(itemOne)
 	list.Add(itemTwo)
@@ -55,7 +55,7 @@ func Test_LinkedList_Remove_Middle(t *testing.T) {
 }
 
 func Test_LinkedList_Remove_Last(t *testing.T) {
-	list := LinkedList[int]{}
+	list := NewLinkedList[int]()
 	itemOne, itemTwo, itemThree := 1, 2, 3
 	list.Add(itemOne)
 	list.Add(itemTwo)
@@ -74,7 +74,7 @@ func Test_LinkedList_Remove_Last(t *testing.T) {
 }
 
 func Test_LinkedList_Remove_OutOfBounds(t *testing.T) {
-	list := LinkedList[int]{}
+	list := NewLinkedList[int]()
 	itemOne, itemTwo, itemThree := 1, 2, 3
 	list.Add(itemOne)
 	list.Add(itemTwo)
@@ -88,7 +88,7 @@ func Test_LinkedList_Remove_OutOfBounds(t *testing.T) {
 }
 
 func Test_LinkedList_ToArray(t *testing.T) {
-	list := LinkedList[int]{}
+	list := NewLinkedList[int]()
 	itemOne, itemTwo, itemThree := 1, 2, 3
 	list.Add(itemOne)
 	list.Add(itemTwo)
@@ -106,7 +106,7 @@ func Test_LinkedList_ToArray(t *testing.T) {
 }
 
 func Test_LinkedList_ToArray_Empty(t *testing.T) {
-	list := LinkedList[int]{}
+	list := NewLinkedList[int]()
 	array := list.ToArray()
 
 	if len(array) != 0 {
@@ -115,7 +115,7 @@ func Test_LinkedList_ToArray_Empty(t *testing.T) {
 }
 
 func Test_LinkedList_Performance(t *testing.T) {
-	list := LinkedList[int]{}
+	list := NewLinkedList[int]()
 	iterations := 1000
 
 	for count := 0; count < iterations; count++ {

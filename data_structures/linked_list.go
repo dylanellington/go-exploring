@@ -11,6 +11,15 @@ type LinkedList[T any] struct {
 	size int
 }
 
+// NewLinkedList creates and returns a default instance of LinkedList[T]
+func NewLinkedList[T any]() LinkedList[T] {
+	return LinkedList[T] {
+		head: nil,
+		last: nil,
+		size: 0,
+	}
+}
+
 // Add inserts a given item at the end of the list.
 func (list *LinkedList[T]) Add(value T) {
 	newNode := Node[T]{

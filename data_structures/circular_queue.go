@@ -1,15 +1,16 @@
 package data_structures
 
-type CircularQueue struct {
-	data []int
+type CircularQueue[T any] struct {
+	data []T
 	head int
 	tail int
 	size int
 }
 
-func NewCircularQueue(size int) CircularQueue {
-	queue := CircularQueue{
-		data: make([]int, size),
+// NewCircularQueue creates and returns a default instance of CircularQueue[T]
+func NewCircularQueue[T any](size int) CircularQueue[T] {
+	queue := CircularQueue[T]{
+		data: make([]T, size),
 		head: -1,
 		tail: -1,
 		size: size,
@@ -18,7 +19,9 @@ func NewCircularQueue(size int) CircularQueue {
 	return queue
 }
 
-func (queue *CircularQueue) EnQueue(value int) bool {
+// EnQueue adds the given value to the queue.
+// Returns false if the queue is full and the value cannot be added.
+func (queue *CircularQueue[T]) EnQueue(value T) bool {
 	if queue.IsEmpty() {
 		queue.head = 0
 		queue.tail = 0
@@ -37,12 +40,17 @@ func (queue *CircularQueue) EnQueue(value int) bool {
 	return false
 }
 
-func (queue *CircularQueue) DeQueue() bool {
+// DeQueue removes and returns the first value from the queue.
+// If the queue is empty a default T will be returned.
+func (queue *CircularQueue[T]) DeQueue() T {
+	var newItem T
+
 	if queue.IsEmpty() {
-		return false
+		return newItem
 	}
 
-	queue.data[queue.head] = 0
+	headValue := queue.data[queue.head]
+	queue.data[queue.head] = newItem
 
 	if queue.head == queue.tail {
 		queue.head = -1
@@ -52,29 +60,39 @@ func (queue *CircularQueue) DeQueue() bool {
 		queue.head = headIndex
 	}
 
-	return true
+	return headValue
 }
 
-func (queue *CircularQueue) Front() int {
+// Peek returns the first item in the queue without removing it.
+// If the queue is empty a default T will be returned.
+func (queue *CircularQueue[T]) Peek() T {
+	var newItem T
+
 	if queue.IsEmpty() {
-		return -1
+		return newItem
 	}
 
 	return queue.data[queue.head]
 }
 
-func (queue *CircularQueue) Rear() int {
+// PeekRear returns the last item in the queue without removing it.
+// If the queue is empty a default T will be returned.
+func (queue *CircularQueue[T]) PeekRear() T {
+	var newItem T
+
 	if queue.IsEmpty() {
-		return -1
+		return newItem
 	}
 
 	return queue.data[queue.tail]
 }
 
-func (queue *CircularQueue) IsEmpty() bool {
+// IsEmpty returns true if the queue has no items in it.
+func (queue *CircularQueue[T]) IsEmpty() bool {
 	return queue.head == -1
 }
 
-func (queue *CircularQueue) IsFull() bool {
+// IsFull returns true if the queue size is at its capacity.
+func (queue *CircularQueue[T]) IsFull() bool {
 	return queue.head == (queue.tail + 1) % queue.size
 }

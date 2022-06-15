@@ -9,15 +9,6 @@ import (
 	"strings"
 )
 
-type LeetcodeProblemDirectory struct {
-	path string
-	LeetcodeProblem
-}
-
-func (dir *LeetcodeProblemDirectory) CreateReadme(chromium *Chromium) error {
-	return dir.LeetcodeProblem.CreateReadme(chromium, dir.path)
-}
-
 func main() {
 	chromium := Chromium{}
 	defer chromium.Close()
@@ -36,6 +27,19 @@ func main() {
 	}
 }
 
+// LeetcodeProblemDirectory maps a Leetcode Problem to a file path.
+type LeetcodeProblemDirectory struct {
+	path string
+	LeetcodeProblem
+}
+
+// CreateReadme creates a readme for the LeetcodeProblem at the set path.
+func (dir *LeetcodeProblemDirectory) CreateReadme(chromium *Chromium) error {
+	return dir.LeetcodeProblem.CreateReadme(chromium, dir.path)
+}
+
+// GetLeetcodeProblemDirectories searches the leetcode_problems folder for any directories that contain a leetcode problem.
+// A valid leetcode problem directory has a name that starts with an integer, which is the number of the leetcode problem.
 func GetLeetcodeProblemDirectories() []LeetcodeProblemDirectory {
 	problemDirectories := make([]LeetcodeProblemDirectory, 0, 0)
 
@@ -69,6 +73,7 @@ func GetLeetcodeProblemDirectories() []LeetcodeProblemDirectory {
 	return problemDirectories
 }
 
+// fileExists checks if a file at the given path exists.
 func fileExists(filePath string) bool {
 	info, err := os.Stat(filePath)
 
